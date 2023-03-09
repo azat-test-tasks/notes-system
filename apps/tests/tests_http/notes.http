@@ -1,0 +1,57 @@
+### List all notes
+GET http://localhost:8000/api/v1/notes/
+Authorization: Token <user_token>
+
+
+### Filter notes by title
+GET http://localhost:8000/api/v1/notes/?title=<note_title>
+Authorization: Token <user_token>
+
+
+### Ordering notes by creation date
+GET http://localhost:8000/api/v1/notes/?ordering=-created_at
+Authorization: Token <user_token>
+
+
+### Create a new note
+POST http://localhost:8000/api/v1/notes/
+Content-Type: application/json
+Authorization: Token <user_token>
+
+{
+  "title": "Test Note",
+  "description": "This is a test note."
+}
+
+
+### View a note detail
+GET http://localhost:8000/api/v1/notes/<note_id>/
+Authorization: Token <user_token>
+
+
+### Update a note
+PUT http://localhost:8000/api/v1/notes/<note_id>/
+Content-Type: application/json
+Authorization: Token <user_token>
+
+{
+  "title": "Updated Note",
+  "description": "This is an updated note."
+}
+
+
+### Partially update a note
+PATCH http://localhost:8000/api/v1/notes/<note_id>/
+Content-Type: application/json
+Authorization: Token <user_token>
+
+{
+  "description": "This is a partially updated note."
+}
+
+
+### Delete a note
+DELETE http://localhost:8000/api/v1/notes/<note_id>/
+Authorization: Token <user_token>
+
+

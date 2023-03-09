@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "notes-system"
+version = "0.1.0"
+description = ""
+authors = ["temirovazat <azatbekt5@gmail.com>"]
+readme = "README.md"
+packages = [{include = "notes_system"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.1.7"
+envparse = "^0.2.0"
+djangorestframework = "^3.14.0"
+django-filter = "^22.1"
+django-cors-headers = "^3.14.0"
+drf-yasg = "^1.21.5"
+black = "^23.1.0"
+isort = "^5.12.0"
+bandit = "^1.7.4"
+flake8 = "^6.0.0"
+djangorestframework-simplejwt = "^5.2.2"
+pillow = "^9.4.0"
+gunicorn = "^20.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

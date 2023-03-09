@@ -1,0 +1,25 @@
+### Register a new user
+
+POST http://localhost:8000/api/v1/auth/register/
+Content-Type: application/json
+
+{
+  "username": "http_test_user",
+  "email": "http_test_user@example.com",
+  "password": "password123"
+}
+
+### Login with existing user
+
+POST http://localhost:8000/api/v1/auth/login/
+Content-Type: application/json
+
+{
+  "email": "http_test_user@example.com",
+  "password": "password123"
+}
+
+### Logout a user
+
+POST http://localhost:8000/api/v1/auth/logout/
+Authorization: Token <user_token>

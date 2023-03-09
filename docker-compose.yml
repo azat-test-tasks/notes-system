@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+      - static_volume:/app/static/
+      - media_volume:/app/media/
+    image: notes-web
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    command: >
+      /bin/sh -c "poetry run python manage.py migrate --no-input 
+      && poetry run python manage.py collectstatic --no-input 
+      && poetry run gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+    restart: always
+
+  nginx:
+    build: ./nginx
+    image: notes-nginx
+    container_name: nginx
+    volumes:
+      - static_volume:/app/static/
+      - media_volume:/app/media/
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    env_file:
+      - .env
+    restart: always
+
+volumes:
+  media_volume:
+  static_volume:
